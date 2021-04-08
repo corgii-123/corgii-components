@@ -1,0 +1,73 @@
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  border-radius: $border-radius;
+}
+
+@mixin button-style(
+  $background,
+  $border,
+  $color,
+  $hover-background:lighten($background, 12%),
+  $hover-border:lighten($border, 15%),
+  $hover-color: $color
+) {
+  color: $color;
+  border-color:$border;
+  background:$background;
+  &:hover {
+    color:$hover-color;
+    border-color:$hover-border;
+    background:$hover-background;
+  }
+  &:focus,
+  &.focus {
+    color:$hover-color;
+    border-color:$hover-border;
+    background:$hover-background;
+    outline: unset;
+  }
+  &.disabled,
+  &[disabled] {
+    color: $color;
+    border-color:$border;
+    background:$background;
+  }
+}
+
+@mixin corgii-animation(
+  $direction: 'top',
+  $scaleStart: scaleY(0),
+  $scaleEnd: scaleY(1),
+  $origin: center top,
+) {
+  .corgii-#{$direction}-enter {
+    opacity: 0;
+    transform: $scaleStart;
+  }
+  .corgii-#{$direction}-enter-active {
+    opacity: 1;
+    transform: $scaleEnd;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+    transform-origin: $origin
+  }
+  .corgii-#{$direction}-exit {
+    opacity: 1;
+  }
+  .corgii-#{$direction}-exit-active {
+    opacity: 0;
+    transform: $scaleStart;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+    transform-origin: $origin;
+  }
+}
+
+@mixin border-right-radius($raduis) {
+  border-top-right-radius: $raduis;
+  border-bottom-right-radius: $raduis;
+}
+
+@mixin border-left-radius($raduis) {
+  border-top-left-radius: $raduis;
+  border-bottom-left-radius: $raduis;
+}

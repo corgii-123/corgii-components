@@ -1,0 +1,17 @@
+// 引入基本样式
+@import "variables";
+// 引入修改好的normalize.css
+@import "reboot";
+// mixin
+@import "mixin";
+// animation
+@import "animation";
+
+// 引入btn类
+@import "../components/Button/style";
+
+// 引入menu类
+@import "../components/Menu/style";
+
+// 引入Icon类
+@import "../components/Icon/style";

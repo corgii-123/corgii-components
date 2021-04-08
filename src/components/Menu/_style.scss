@@ -1,0 +1,110 @@
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 5px;
+  margin-bottom: 10px;
+  list-style: none;
+  border-bottom: $menu-border-width solid $menu-border-color;
+  box-shadow: $menu-box-shadow;
+  .menu-item {
+    padding:$menu-item-padding-y $menu-item-padding-x;
+    cursor:pointer;
+    transition: $menu-transition;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+    &.is-disabled {
+      color:$menu-item-disabled-color;
+      pointer-events: none;
+    }
+    &.is-active,
+    &:hover {
+      color: $menu-item-active-color;
+      border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
+    }
+  }
+}
+
+.menu-vertical {
+  flex-direction: column;
+  border-bottom: 0;
+  margin:5px 15px;
+  border-right: $menu-border-width solid #eee;
+  .menu-item {
+    border-left: $menu-item-active-border-width solid transparent;
+    &.is-active,
+    &:hover {
+      border-bottom:0;
+      border-left: $menu-item-active-border-width solid $menu-item-active-color;
+    }
+  }
+  .submenu-item {
+    .corgii-icon {
+      transform: rotateZ(90deg) !important;
+      transition: transform .25s ease-in-out;
+    }
+    &.is-active {
+      .corgii-icon {
+        transform: rotate(0) !important;
+      }
+    }
+  }
+}
+
+.submenu-item {
+  position: relative;
+  .submenu-title {
+    display: flex;
+    align-items: center;
+    .corgii-icon {
+      margin-left: 3px;
+      transform: rotateZ(90deg);
+      transition: transform .25s ease-in-out;
+    }
+  }
+  &:hover {
+    .submenu-title {
+      .corgii-icon {
+        transform: rotate(0);
+      }
+    }
+  }
+  .submenu {
+    position:relative;
+    list-style: none;
+    padding-left:0;
+    white-space: nowrap;
+    margin-top: 15px;
+    background-color: #fff;
+    &::before{
+      position:absolute;
+      content:"";
+      width: 100%;
+      height:15px;
+      top:-15px;
+      background-color: transparent;
+    }
+    .menu-item {
+      padding: $menu-item-padding-y $menu-item-padding-x;
+      cursor: pointer;
+      transition: $menu-transition;
+      color: $body-color;
+      border-left: $menu-item-active-border-width solid transparent;
+      border-bottom: $menu-item-active-border-width solid transparent;
+      &.is-active, &:hover {
+        color: $menu-item-active-color !important;
+      }
+    }
+  }
+}
+
+.menu-horizental {
+  .submenu-item {
+    .submenu {
+      position:absolute;
+      box-shadow: $submenu-box-shadow; 
+      z-index: 1;
+    }
+  }
+}

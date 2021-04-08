@@ -1,0 +1,5 @@
+  
+@include corgii-animation('top', scaleY(0), scaleY(1), center top);
+@include corgii-animation('left', scale(.45, .45), scale(1, 1), top left);
+@include corgii-animation('right', scale(.45, .45), scale(1, 1), top right);
+@include corgii-animation('bottom', scaleY(0), scaleY(1),  center bottom);
