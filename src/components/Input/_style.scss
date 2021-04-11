@@ -1,0 +1,74 @@
+.corgii-input-wrap {
+  padding: 5px;
+  .corgii-input {
+    padding: $input-padding-y $input-padding-x;
+    font-size: $input-font-size;
+    font-family: $input-font-family;
+    font-weight: $input-font-weight;
+    line-height: $input-line-height;
+    border-radius: $input-border-radius;
+    background-color: $input-bg;
+    color: $input-color;
+    border: $input-border-width $input-border-color solid;
+    box-shadow: $input-box-shadow;
+    outline: none;
+    transition: $input-transition;
+    &:focus {
+      background-color: $input-focus-bg;
+      border: $input-focus-border-color $input-focus-width solid;
+      color: $input-focus-color;
+      box-shadow: $input-focus-box-shadow;
+    }
+    &.input-lg {
+      font-size: $input-font-size-lg;
+      padding: $input-padding-y-lg $input-padding-x-lg;
+      border-radius: $input-border-radius-lg;
+      + .corgii-icon {
+        font-size: $input-font-size-lg;
+      }
+    }
+    &.input-sm {
+      font-size: $input-font-size-sm;
+      padding: $input-padding-y-sm $input-padding-x-sm;
+      border-radius: $input-border-radius-sm;
+      + .corgii-icon {
+        font-size: $input-font-size-sm;
+      }
+    }
+    &.is-disabled {
+      border: unset;
+      background-color: $input-disabled-bg;
+      cursor: not-allowed;
+    }
+  }
+  .corgii-icon {
+    transform: translateX(-135%);
+  }
+  .input-group {
+    padding: $input-padding-y $input-padding-x;
+    border-radius: $input-border-radius;
+    font-size: $input-font-size;
+    color: $input-group-addon-color;
+    background-color: $input-group-addon-bg;
+    border: $input-group-addon-border-color $input-border-width solid;
+    &.append {
+      margin-left: -$input-font-size;
+    }
+    &.input-group-lg {
+      font-size: $input-font-size-lg;
+      padding: $input-padding-y-lg $input-padding-x-lg;
+      border-radius: $input-border-radius-lg;
+      &.append {
+        margin-left: -$input-font-size-lg;
+      }
+    }
+    &.input-group-sm {
+      font-size: $input-font-size-sm;
+      padding: $input-padding-y-sm $input-padding-x-sm;
+      border-radius: $input-border-radius-sm;
+      &.append {
+        margin-left: -$input-font-size-sm;
+      }
+    }
+  }
+}

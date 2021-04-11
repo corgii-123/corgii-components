@@ -1,11 +1,11 @@
 // 引入基本样式
-@import "variables";
+@import "./variables";
 // 引入修改好的normalize.css
-@import "reboot";
+@import "./reboot";
 // mixin
-@import "mixin";
+@import "./mixin";
 // animation
-@import "animation";
+@import "./animation";
 
 // 引入btn类
 @import "../components/Button/style";
@@ -15,3 +15,6 @@
 
 // 引入Icon类
 @import "../components/Icon/style";
+
+// 引入Input类
+@import "../components//Input/style";

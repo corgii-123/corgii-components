@@ -19,6 +19,7 @@ const Transition: React.FC<TransitionProps> = (props) => {
     wrapper,
     ...restProps
   } = props
+  // 利用transition不能继承所以wrapper防止与子元素的transition冲突
   return (
     <CSSTransition classNames={classNames || animation} {...restProps}>
       {wrapper ? <div>{children}</div> : children}

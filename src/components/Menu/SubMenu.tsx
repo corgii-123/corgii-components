@@ -47,7 +47,6 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
   }
   const verticalFormate = {
     onClick: (e: React.MouseEvent) => {
-      if(context.mode === 'horizental') return
       e.preventDefault()
       if (context.onSelect) {
         context.onSelect(index as string)

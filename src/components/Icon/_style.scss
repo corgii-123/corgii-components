@@ -1,3 +1,4 @@
+// 使用sass内置的map
 @each $key, $val in $theme-colors {
   .icon-#{$key} {
     color: $val;

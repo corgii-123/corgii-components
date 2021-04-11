@@ -7,15 +7,19 @@ import MenuItem from './components/Menu/MenuItem'
 import SubMenu from './components/Menu/SubMenu'
 import Icon from './components/Icon/Icon'
 import Transition from './components/Transition/Transition'
+import Input from './components/Input/Input';
 
+// 引入所有图标
 library.add(fas)
+
 function App() {
   const [show, setShow] = useState(true)
   return (
     <div className="App">
-      <Icon icon="coffee" theme="primary" size="lg" />
+      <Input icon='search' prepend='http://' size="lg" append=".com" />
+      <Icon icon="coffee" theme="danger" size="lg" />
       <header className="App-header">
-        <Menu onSelect={(i) => { console.log(i) }} mode="horizental">
+        <Menu onSelect={(i) => { console.log(i) }} mode="vertical">
           <MenuItem>
             Hello1
           </MenuItem>

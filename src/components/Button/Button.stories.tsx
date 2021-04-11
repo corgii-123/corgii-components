@@ -1,53 +1,63 @@
-import React from 'react';
-// also exported from '@storybook/react' if you can deal with breaking changes in 6.1
-import { Story, Meta } from '@storybook/react/types-6-0';
-import Button, { ButtonSize, ButtonType, ButtonProps } from './Button'
+import React from 'react'
+import Button, { ButtonProps, ButtonSize, ButtonType } from './Button'
+import { Story, Meta } from '@storybook/react'
 
-export default {
-  title: 'Example/myButton',
+const configParameters = {
+  title: 'CorgiiExample/Button',
   component: Button,
-  argTypes: {
-    backgroundColor: { control: 'color' },
+  parameters: {
+    docs: {
+      description: {
+        component: '> 按钮组件🔘',
+      },
+    },
   },
-} as Meta;
+  argTypes: {
+    size: {
+      options: [ButtonSize.Large, ButtonSize.Small, ''],
+      control: {
+        type: 'radio',
+        labels: {
+          [ButtonSize.Large]: 'large',
+          [ButtonSize.Small]: 'small',
+          '': 'default'
+        }
+      }
+    },
+    btnType: {
+      options: [ButtonType.Primary, ButtonType.Danger, ButtonType.Default],
+      control: {
+        type: 'select',
+        labels: {
+          [ButtonType.Primary]: 'primary',
+          [ButtonType.Danger]: 'danger',
+          [ButtonType.Default]: 'default',
+        }
+      }
+    },
+    onClick: { action: 'clicked' } 
+  }
+} as Meta
 
-const Template: Story<ButtonProps> = (args) => (
-    <Button {...args} >
-      {args.children}
+const Template: Story<ButtonProps> = (args) => {
+  const { children, ...restProps } = args
+  return (
+    <Button {...restProps}>
+      {children}
     </Button>
-);
-
-export const Default = Template.bind({});
-Default.args = {
-  btnType: ButtonType.Default,
-  children: 'Button',
-};
-
-export const Size = () => {
-  return (
-    <>
-      <Button size={ButtonSize.Small}>
-        Button
-      </Button>
-      <Button size={ButtonSize.Large}>
-        Button
-      </Button>
-    </>
   )
 }
 
-export const Type = () => {
-  return (
-    <>
-      <Button btnType={ButtonType.Danger}>
-        Button
-      </Button>
-      <Button btnType={ButtonType.Primary}>
-        Button
-      </Button>
-      <Button btnType={ButtonType.Link} href="https://www.bilibili.com">
-        Button
-      </Button>
-    </>
-  )
+export const Size = Template.bind({})
+Size.args = {
+  children: '可调节大小Size',
+  size: undefined
 }
+
+export const Type = Template.bind({})
+Type.args = {
+  children: '调节不同类型Type',
+  btnType: ButtonType.Primary
+}
+
+export default configParameters
