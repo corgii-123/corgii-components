@@ -1,0 +1,35 @@
+.corgii-auto-complete {
+  .spinner {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    margin: 5px auto;
+  }
+  ul {
+    width: 98%;
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin: 2px auto;
+    li {
+      position: relative;
+      padding:$menu-item-padding-y $menu-item-padding-x;
+      cursor: pointer;
+      transition: $menu-transition;
+      color: $body-color;  
+      border: $menu-border-width solid #eee;
+      &:hover {
+        color: $menu-item-active-color;
+        border: $menu-item-active-border-width solid $menu-item-active-color;
+      }
+      .angle-right {
+        position: absolute;
+        top: 50%;
+        left: 95%;
+        transform: translateY(-50%);
+        color: $gray-300;
+        line-height: 50px;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import Button, { ButtonType, ButtonSize } from './components/Button/Button'
@@ -7,16 +7,35 @@ import MenuItem from './components/Menu/MenuItem'
 import SubMenu from './components/Menu/SubMenu'
 import Icon from './components/Icon/Icon'
 import Transition from './components/Transition/Transition'
-import Input from './components/Input/Input';
+import Input from './components/Input/Input'
+import AutoComplete from './components/AutoComplete/AutoComplete'
+import axios from 'axios'
 
 // 引入所有图标
 library.add(fas)
 
 function App() {
   const [show, setShow] = useState(true)
+  const [inputTest, setInputTest] = useState('')
+  const postData = {
+    title: 'my title',
+    
+  }
+  useEffect(() => {
+    axios.get('https://jsonplaceholder.typicode.com/posts/1', {
+      headers: {
+        'x-Requested-With': 'XMLHttpRequest'
+      },
+      responseType: 'json'
+    })
+      .then(res => {
+        
+    })
+  })
   return (
     <div className="App">
-      <Input icon='search' prepend='http://' size="lg" append=".com" />
+      <AutoComplete fetchSuggestions={(str) => [str]} />
+      <Input icon='search' prepend='http://' size="lg" append=".com" value={inputTest} onChange={(e) => setInputTest(e.target.value)} />
       <Icon icon="coffee" theme="danger" size="lg" />
       <header className="App-header">
         <Menu onSelect={(i) => { console.log(i) }} mode="vertical">

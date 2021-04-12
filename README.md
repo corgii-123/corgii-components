@@ -8,9 +8,13 @@
 - `fontawesome`下的SVG图标库
 - `react-transition-group`组件的进入和离开
 - `storybook`实现文档
+- `axios`HTTP异步请求
+- `jsonplaceholder`/`mock.io`线上测试
 ## 包含组件
 - button组件
 - Menu组件
 - Icon组件
 - Transition组件
 - Input组件
+- AutoComplete组件
+- Upload组件
