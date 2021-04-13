@@ -1,6 +1,6 @@
 {
   "name": "@corgii-123/corgii",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "private": false,
   "description": "React components library called Corgii🐕",
   "author": "corgii-123",
@@ -8,9 +8,10 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "license": "MIT",
-  "keyword": [
+  "keywords": [
     "Component",
-    "React"
+    "React",
+    "UI"
   ],
   "homepage": "https://github.com/corgii-123/corgii-components",
   "repository": {
@@ -26,31 +27,27 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.13",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "classnames": "^2.2.6",
-    "node-sass": "^4.14.1",
-    "react": "^17.0.1",
-    "react-docgen-typescript-loader": "^3.7.2",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.1",
-    "react-transition-group": "^4.4.1",
-    "typescript": "^4.0.3",
-    "web-vitals": "^0.2.4"
+    "react-transition-group": "^4.4.1"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.1",
+    "react-dom": ">=17.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
+    "lint": "eslint --ext js,ts,tsx src --max-warnings 5",
     "clean": "rimraf ./dist",
     "build": "yarn clean && yarn build-ts && yarn build-css",
     "test": "react-scripts test",
+    "test:nowatch": "cross-env CI=true react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/style/index.scss ./dist/index.css",
-    "prepublish": "npm run build"
+    "prepublish": "yarn test:nowatch && yarn lint && npm run build"
   },
   "eslintConfig": {
     "extends": [
@@ -90,6 +87,9 @@
     "@storybook/preset-create-react-app": "^3.1.7",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.2.7",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
     "@types/classnames": "^2.2.11",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
@@ -98,10 +98,19 @@
     "@types/react-transition-group": "^4.4.0",
     "@types/storybook__addon-info": "^5.2.3",
     "@types/storybook__react": "^5.2.1",
+    "cross-env": "^7.0.3",
     "css-loader": "^5.2.0",
+    "husky": "^6.0.0",
+    "node-sass": "^4.14.1",
+    "react": "^17.0.1",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
     "rimraf": "^3.0.2",
     "sass": "^1.32.8",
     "sass-loader": "^11.0.1",
-    "style-loader": "^2.0.0"
+    "style-loader": "^2.0.0",
+    "typescript": "^4.0.3",
+    "web-vitals": "^0.2.4"
   }
 }

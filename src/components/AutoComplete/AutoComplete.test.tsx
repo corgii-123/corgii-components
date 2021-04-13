@@ -1,6 +1,7 @@
 import React from 'react'
 import { render, RenderResult, fireEvent, waitFor } from '@testing-library/react'
 import AutoComplete, { AutoCompleteProps } from './AutoComplete'
+import '@testing-library/jest-dom/extend-expect';
 
 const testArray = [
   { value: 'ab', number: 1 },
