@@ -14,7 +14,7 @@ const checkFileSize = (file: File) => {
 // 修改文件信息
 const filePromise = (file: File) => {
   // 实例化File对象
-  const newFile = new File([file], `_corgii-${file.name}`, {type: file.type})
+  const newFile = new File([file], `corgii-${file.name}`, {type: file.type})
   return Promise.resolve(newFile)
 }
 
@@ -39,5 +39,12 @@ FileInput.args = {
   onSuccess: action('success'),
   onError: action('error'),
   onChange: action('change'),
-  beforeUpload: filePromise
+  beforeUpload: filePromise,
+  name: 'corgiiFile',
+  data: { 'key': 'value' },
+  headers: { 'X-Power-By': 'corgii' },
+  accept: '.jpg',
+  multiple: true,
+  drag: true,
+  label: '📂请上传文件'
 }

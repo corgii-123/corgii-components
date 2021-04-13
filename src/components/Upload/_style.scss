@@ -1,0 +1,60 @@
+.corgii-upload-component {
+  .corgii-upload-drag {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    border: 2px dashed silver;
+    color: $gray-400;
+    &.is-drag-over {
+      color: $menu-item-active-color;
+      border: 2px dashed $indigo;
+    }
+  }
+  .corgii-upload-list {
+    padding: 10px 0;
+    list-style: none;
+    text-decoration: none;
+    font-size: $font-size-sm;
+    color: $gray-400;
+    .corgii-upload-list-item {
+      width: 150px;
+      padding-right: 20px;
+      padding-bottom: 5px;
+      margin-top: 10px;
+      border-bottom: $menu-border-width solid #eee;
+      position: relative;
+      transition: $menu-transition;
+      .file-name {
+        display: inline-block;
+        width: 90%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .file-status,
+      .file-close {
+        position: absolute;
+        right: 20px;
+        top: 30%;
+        transform: translateY(-50%);
+        opacity: 1;
+        cursor: pointer;
+        transition: $menu-transition, opacity .15s ease-in-out;
+      }
+      .file-close {
+        opacity: 0;
+      }
+      &:hover {
+        color: $menu-item-active-color;
+        .file-close {
+          opacity: 1;
+        }
+        .file-status {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

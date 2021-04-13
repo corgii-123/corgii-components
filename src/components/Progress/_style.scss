@@ -1,0 +1,18 @@
+.corgii-progress-bar {
+  font-size: $progress-font-size;
+  .progress-outer {
+    background-color: $progress-bg;
+    border-radius: $progress-border-radius;
+    .progress-inner {
+      border-radius: $progress-border-radius;
+      color: $progress-bar-color;
+      transition: $progress-bar-transition;
+      // 使用sass内置的map
+      @each $key, $val in $theme-colors {
+        &.color-#{$key} {
+          background-color: $val;
+        }
+      }
+    }
+  }
+}

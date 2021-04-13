@@ -3,6 +3,7 @@ import Button, { ButtonType } from '../Button/Button'
 import axios from 'axios'
 import updateFileList from '../../utils/updateFileList'
 import UploadList from './UploadList'
+import Dragger from './Dragger'
 
 export interface UploadFile {
   uid: string;
@@ -24,6 +25,14 @@ export interface UploadProps {
   onError?: (data: any, file: UploadFile) => void
   onChange?: (file: UploadFile) => void
   onRemove?: (file: UploadFile) => void
+  headers?: { [key: string]: any }
+  name?: string
+  data?: { [key: string]: any }
+  withCredentials?: boolean
+  accept?: string
+  multiple?: boolean
+  drag?: boolean
+  label?: string
 }
 
 const Upload: FC<UploadProps> = (props) => {
@@ -34,12 +43,20 @@ const Upload: FC<UploadProps> = (props) => {
     onSuccess,
     onError,
     onChange,
-    onRemove
+    onRemove,
+    headers,
+    withCredentials,
+    name,
+    data,
+    accept,
+    multiple,
+    drag,
+    label
   } = props
   const fileInput = useRef<HTMLInputElement>(null)
   const [fileList, setFileList] = useState<Array<UploadFile>>([])
   const handleClick = () => {
-    if (fileInput) {
+    if (fileInput && fileInput.current) {
       fileInput.current.click()
     }
   }
@@ -73,11 +90,18 @@ const Upload: FC<UploadProps> = (props) => {
       return [_file, ...preList]
     })
     const formData = new FormData()
-    formData.append(file.name, file)
+    formData.append(name || 'file', file)
+    if (data) {
+      Object.keys(data).forEach(key => {
+        formData.append(key, data[key])
+      })
+    }
     axios.post(action, formData, {
       'headers': {
-        'Content-Type': 'multipart/form-data'
+        'Content-Type': 'multipart/form-data',
+        ...headers,
       },
+      withCredentials,
       // 这里是进度信息
       onUploadProgress(e: any) {
         // 为了防止setState中的异步所带来的数据不变化，传入函数可以拿到最新的值
@@ -98,10 +122,10 @@ const Upload: FC<UploadProps> = (props) => {
         return updateFileList(preList, _file, {status: 'success', percent: 100, response: res.data})
       })
       if (onSuccess) {
-        onSuccess(res.data, _file)
+        onSuccess(res.data, {..._file, status: 'success', percent: 100, response: res.data })
       }
       if (onChange) {
-        onChange(_file)
+        onChange( {..._file, status: 'success', percent: 100, response: res.data })
       }
     }).catch(err => {
       setFileList(preList => {
@@ -109,10 +133,10 @@ const Upload: FC<UploadProps> = (props) => {
         return updateFileList(preList, _file, {status: 'error', response: err})
       })
       if (onError) {
-        onError(err, _file)
+        onError(err, {..._file, status: 'error', response: err })
       }
       if (onChange) {
-        onChange(_file)
+        onChange({..._file, status: 'error', response: err })
       }
     })
   }
@@ -139,18 +163,25 @@ const Upload: FC<UploadProps> = (props) => {
         btnType={ButtonType.Primary}
         onClick={handleClick}
       >
-        上传文件
+        {label || '上传文件'}
       </Button>
+      {drag ? <Dragger onFile={(files) => updateFiles(files)}>{label}</Dragger> : '上传文件'}
       <input
         type="file"
         className="corgii-file-input"
         style={{ display: 'none' }}
         ref={fileInput}
         onChange={handleFileChange}
+        accept={accept}
+        multiple={multiple}
       />
       <UploadList fileList={fileList} onRemove={handleRemove} />
     </div>
   )
+}
+
+Upload.defaultProps = {
+  name: 'file'
 }
 
 export default Upload
