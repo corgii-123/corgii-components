@@ -165,7 +165,7 @@ const Upload: FC<UploadProps> = (props) => {
       >
         {label || '上传文件'}
       </Button>
-      {drag ? <Dragger onFile={(files) => updateFiles(files)}>{label}</Dragger> : '上传文件'}
+      {drag ? <Dragger onFile={(files) => updateFiles(files)}>{label}</Dragger> : ''}
       <input
         type="file"
         className="corgii-file-input"
