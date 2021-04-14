@@ -18,6 +18,9 @@
     "type": "git",
     "url": "https://github.com/corgii-123/corgii-components"
   },
+  "publishConfig": {
+    "registry": "https://www.npmjs.com/package/@corgii-123/corgii"
+  },
   "files": [
     "dist",
     "README.md",
