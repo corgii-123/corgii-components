@@ -47,7 +47,7 @@
     "build-storybook": "rimraf ./storybook-static && build-storybook -s public",
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/style/index.scss ./dist/index.css",
-    "prepublish": "yarn test:nowatch && yarn lint && npm run build"
+    "prepublishOnly": "yarn test:nowatch && yarn lint && npm run build"
   },
   "eslintConfig": {
     "extends": [
