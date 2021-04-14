@@ -1,6 +1,6 @@
 {
   "name": "@corgii-123/corgii",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "private": false,
   "description": "React components library called Corgii🐕",
   "author": "corgii-123",
@@ -19,7 +19,7 @@
     "url": "https://github.com/corgii-123/corgii-components"
   },
   "publishConfig": {
-    "registry": "https://www.npmjs.com/package/@corgii-123/corgii"
+    "registry": "https://npm.pkg.github.com/@corgii-123"
   },
   "files": [
     "dist",
