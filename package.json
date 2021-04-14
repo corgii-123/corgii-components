@@ -19,7 +19,7 @@
     "url": "https://github.com/corgii-123/corgii-components"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@corgii-123"
+    "registry": "https://npm.pkg.github.com/corgii-123"
   },
   "files": [
     "dist",
