@@ -6,10 +6,12 @@ type AnimationName = 'corgii-top' | 'corgii-left' | 'corgii-right' | 'corgii-bot
 
 interface AnimationProps {
   animation?: AnimationName,
-  wrapper?: boolean
+  wrapper?: boolean,
+  in: boolean,
+  timeout: number
 }
 
-type TransitionProps = AnimationProps & CSSTransitionProps
+type TransitionProps = AnimationProps & Omit<CSSTransitionProps<HTMLElement>, 'in' | 'timeout'>
 
 const Transition: React.FC<TransitionProps> = (props) => {
   const {

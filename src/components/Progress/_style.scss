@@ -7,6 +7,10 @@
       border-radius: $progress-border-radius;
       color: $progress-bar-color;
       transition: $progress-bar-transition;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
       // 使用sass内置的map
       @each $key, $val in $theme-colors {
         &.color-#{$key} {

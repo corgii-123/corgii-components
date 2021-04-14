@@ -44,7 +44,7 @@
     "test:nowatch": "cross-env CI=true react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
+    "build-storybook": "rimraf ./storybook-static && build-storybook -s public",
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/style/index.scss ./dist/index.css",
     "prepublish": "yarn test:nowatch && yarn lint && npm run build"

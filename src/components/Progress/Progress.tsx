@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { ThemeProps } from '../Icon/Icon'
 import classNames from 'classnames'
 
-export interface ProgresssProps {
+export interface ProgressProps {
   percent: number;
   strokeHeight?: number;
   showText?: boolean;
@@ -10,7 +10,7 @@ export interface ProgresssProps {
   theme?: ThemeProps;
 }
 
-const Progress: FC<ProgresssProps> = (props) => {
+const Progress: FC<ProgressProps> = (props) => {
   const {
     percent,
     strokeHeight,
@@ -36,7 +36,7 @@ const Progress: FC<ProgresssProps> = (props) => {
 }
 
 Progress.defaultProps = {
-  strokeHeight: 15,
+  strokeHeight: 20,
   showText: true,
   theme: 'primary'
 }

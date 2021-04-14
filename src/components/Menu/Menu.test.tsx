@@ -1,4 +1,4 @@
-import React, { DOMElement } from 'react'
+import React from 'react'
 import '@testing-library/jest-dom/extend-expect';
 import { render, fireEvent, RenderResult,cleanup } from '@testing-library/react'
 import Menu, {MenuProps, MenuMode} from './Menu'

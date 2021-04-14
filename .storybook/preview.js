@@ -8,4 +8,9 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  options: {
+    storySort: {
+      order: ['Welcome', 'CorgiiExample', ['Button', 'Input', 'Menu', 'Icon', 'AutoComplete', 'Progress', 'Upload', 'Transition']],
+    },
+  },
 }
