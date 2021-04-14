@@ -4,7 +4,7 @@ import Upload, { UploadProps } from './Upload'
 import axios from 'axios'
 import '@testing-library/jest-dom/extend-expect';
 
-jest.mock('../Icon/icon', () => {
+jest.mock('../Icon/Icon', () => {
   return ({ icon, onClick }: {icon: string, onClick: any}) => {
     return <span onClick={onClick}>{icon}</span>
   }
