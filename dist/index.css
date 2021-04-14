@@ -718,7 +718,11 @@ main {
     .corgii-progress-bar .progress-outer .progress-inner {
       border-radius: 0.25rem;
       color: #fff;
-      transition: width 0.6s ease; }
+      transition: width 0.6s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%; }
       .corgii-progress-bar .progress-outer .progress-inner.color-primary {
         background-color: #277da1; }
       .corgii-progress-bar .progress-outer .progress-inner.color-secondary {

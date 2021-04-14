@@ -1,6 +1,6 @@
 {
   "name": "@corgii-123/corgii",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": false,
   "description": "React components library called Corgii🐕",
   "author": "corgii-123",
@@ -47,7 +47,7 @@
     "build-storybook": "rimraf ./storybook-static && build-storybook -s public",
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/style/index.scss ./dist/index.css",
-    "prepublishOnly": "yarn test:nowatch && yarn lint && npm run build"
+    "prepublishOnly": "yarn test:nowatch && yarn lint && yarn build"
   },
   "eslintConfig": {
     "extends": [

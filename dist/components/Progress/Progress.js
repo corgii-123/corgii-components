@@ -20,7 +20,7 @@ var Progress = function (props) {
     return (_jsx("div", __assign({ className: "corgii-progress-bar", style: styles }, { children: _jsx("div", __assign({ className: "progress-outer", style: { height: strokeHeight + "px" } }, { children: _jsx("div", __assign({ className: realClasses, style: { width: percent + "%" } }, { children: showText && _jsx("span", __assign({ className: "inner-text" }, { children: percent + "%" }), void 0) }), void 0) }), void 0) }), void 0));
 };
 Progress.defaultProps = {
-    strokeHeight: 15,
+    strokeHeight: 20,
     showText: true,
     theme: 'primary'
 };

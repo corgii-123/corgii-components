@@ -10,7 +10,7 @@
 jest.test.js
 
 # production
-/dist
+/build
 
 # misc
 .DS_Store

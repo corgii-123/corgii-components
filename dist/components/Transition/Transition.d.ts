@@ -4,7 +4,9 @@ declare type AnimationName = 'corgii-top' | 'corgii-left' | 'corgii-right' | 'co
 interface AnimationProps {
     animation?: AnimationName;
     wrapper?: boolean;
+    in: boolean;
+    timeout: number;
 }
-declare type TransitionProps = AnimationProps & CSSTransitionProps;
+declare type TransitionProps = AnimationProps & Omit<CSSTransitionProps<HTMLElement>, 'in' | 'timeout'>;
 declare const Transition: React.FC<TransitionProps>;
 export default Transition;
