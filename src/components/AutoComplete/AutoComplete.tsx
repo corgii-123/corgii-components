@@ -24,7 +24,7 @@ const AutoComplete: FC<AutoCompleteProps> = (props) => {
   const componentRef = useRef<HTMLDivElement>(null)
   const debouceVal = useDebounce(inputValue, 500)
   useClickOutside(componentRef, () => {setSuggestions([])})
-  const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     setInputValue(value)
     triggerSearch.current = true
